@@ -1,10 +1,10 @@
 import random
 
 class monster:
-    def __init__(self):
-        self._type = "unknown"
-        self._attack = 0
-        self._HP = 0
+    def __init__(self, type, attack, HP):
+        self.__type = type
+        self.__attack = attack
+        self.__HP = HP
 
     def take_dmg(self, attack):
         self.__HP -= attack
@@ -17,25 +17,15 @@ class monster:
 
 class skeleton_knight(monster):
     def __init__(self):
-        super().__init__()
+        super().__init__("skeleton",random.randint(8,12),15)
 
-        self._type = "skeleton"
-        self._attack = random.randint(8,12)
-        self._HP = 15
 class slime(monster):
     def __init__(self):
-        super().__init__()
+        super().__init__("slime",random.randint(3,5), 25)
 
-        self._type = "slime"
-        self._attack = random.randint(3,5)
-        self._hp = 25
 class Wild_boar(monster):
     def __init__(self):
-        super().__init__()
-
-        self._type = "Wild boar"
-        self._attack = random.randint(5,9)
-        self._HP = 20
+        super().__init__("Wild boar",random.randint(5,9), 20)
 
 class player:
     def __init__(self, name, monster):
@@ -54,16 +44,14 @@ print("wild boar # 3")
 
 choose = int(input("what monster do you want, input its number "))
 if choose == 1:
-    choosen_monster = skeleton_knight()
+    choosen_monster = skeleton = skeleton_knight()
 elif choose == 2:
     choosen_monster = slime()
 elif choose == 3:
-    choosen_monster = Wild_boar()
+    choosen_monster = boar = Wild_boar()
 
+print(choosen_monster.get_type())
 player1 = player(name, choosen_monster)
 
-input(f"great", player1.get_name(), "press enter to continue ")
+input(f"great {player1.get_name()}! press enter to continue ")
 
-random_enemy = monsterSUB.get_type(random)
-print("you have an random encountre with a", )
-        
